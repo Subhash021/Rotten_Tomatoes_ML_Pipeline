@@ -49,12 +49,15 @@ R² Score: Indicates how well the model explains the variance in the target.
 Load the Data:
 Ensure the Excel file Rotten_Tomatoes_Movies3.xlsx is in the specified path. Load the data and explore the sheet names:
 file_path = "/mnt/data/Rotten_Tomatoes_Movies3.xlsx"
+
 xls = pd.ExcelFile(file_path)
+
 print(xls.sheet_names)
 
 Select Features and Target:
 
 features = ['rating', 'genre', 'runtime_in_minutes', 'tomatometer_rating']
+
 target = 'audience_rating'
 
 Train-Test Split:
@@ -70,9 +73,13 @@ pipeline.fit(X_train, y_train)
 Predict and Evaluate:
 
 y_pred = pipeline.predict(X_test)
+
 mse = mean_squared_error(y_test, y_pred)
+
 r2 = r2_score(y_test, y_pred)
+
 print(f"Mean Squared Error: {mse}")
+
 print(f"R² Score: {r2}")
 
 **Model Evaluation**
