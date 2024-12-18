@@ -53,18 +53,22 @@ xls = pd.ExcelFile(file_path)
 print(xls.sheet_names)
 
 Select Features and Target:
+
 features = ['rating', 'genre', 'runtime_in_minutes', 'tomatometer_rating']
 target = 'audience_rating'
 
 Train-Test Split:
+
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 
 Build and Train the Pipeline:
+
 pipeline.fit(X_train, y_train)
 
 
 Predict and Evaluate:
+
 y_pred = pipeline.predict(X_test)
 mse = mean_squared_error(y_test, y_pred)
 r2 = r2_score(y_test, y_pred)
