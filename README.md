@@ -56,19 +56,23 @@ xls = pd.ExcelFile(file_path)
 print(xls.sheet_names)
 
 **Select Features and Target:**
+
 features = ['rating', 'genre', 'runtime_in_minutes', 'tomatometer_rating']
 
 target = 'audience_rating'
 
 **Train-Test Split:**
+
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 
 **Build and Train the Pipeline:**
+
 pipeline.fit(X_train, y_train)
 
 
 **Predict and Evaluate:**
+
 y_pred = pipeline.predict(X_test)
 
 mse = mean_squared_error(y_test, y_pred)
@@ -83,6 +87,8 @@ print(f"R² Score: {r2}")
 After running the pipeline, the following evaluation metrics are obtained:
 
 **Mean Squared Error (MSE):** 230.22
+
 **R² Score:** 0.44
+
 The model explains approximately 44% of the variance in the audience ratings.
 
